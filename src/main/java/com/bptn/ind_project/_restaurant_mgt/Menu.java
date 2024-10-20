@@ -9,7 +9,7 @@ class Menu {
 		this.menuItems = menuItems;
 	}
 	
-	
+	// view the menu based on categories
 	public void viewMenu() {
 		System.out.println("Menu");
 		for(MenuItem menuItem: menuItems) {

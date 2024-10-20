@@ -1,0 +1,50 @@
+package com.bptn.ind_project._restaurant_mgt;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+ class Order {
+	 private Map<MenuItem, Integer> orderItems;
+	
+	public Order() {
+		orderItems = new HashMap<>();
+	}
+	
+	
+	public void placeOrder(ArrayList<MenuItem> menuItems) {
+		Scanner scan = new Scanner(System.in);
+		String isOrdering;
+		
+		// continue looping when user types yes
+		do {
+			System.out.println("Add the name of the item");
+			String orderItem = scan.nextLine();
+			
+			// loop through menu items to search for item ordered and assign it a selectedItem variable
+			MenuItem selectedItem = null;
+            for (MenuItem item : menuItems) {
+                if (item.getName().equals(orderItem)) {
+                    selectedItem = item;
+                }
+            }
+
+            // If the item was found, ask for quantity and update map. 
+            if (selectedItem != null) {
+                System.out.println("Enter the quantity:");
+                int quantity = scan.nextInt();
+                scan.nextLine();
+
+                orderItems.put(selectedItem, orderItems.getOrDefault(selectedItem, 0) + quantity);
+            } else {
+                System.out.println("Item not found in the menu.");
+            }
+
+			System.out.println("Do you still want to order? yes/no");
+			isOrdering = scan.nextLine();
+		} while(isOrdering.equalsIgnoreCase("yes"));
+		System.out.println(orderItems);
+		
+	}
+}
