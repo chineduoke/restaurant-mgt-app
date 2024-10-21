@@ -1,6 +1,5 @@
 package com.bptn.ind_project._restaurant_mgt;
 
-import java.util.Map;
 
 class MenuItem {
 	private String name;

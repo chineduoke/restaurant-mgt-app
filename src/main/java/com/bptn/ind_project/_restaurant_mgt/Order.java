@@ -13,6 +13,16 @@ import java.util.Scanner;
 	}
 	
 	
+	public Map<MenuItem, Integer> getOrderItems() {
+		return orderItems;
+	}
+
+
+//	public void setOrderItems(Map<MenuItem, Integer> orderItems) {
+//		this.orderItems = orderItems;
+//	}
+
+
 	public void placeOrder(ArrayList<MenuItem> menuItems) {
 		Scanner scan = new Scanner(System.in);
 		String isOrdering;
@@ -44,7 +54,9 @@ import java.util.Scanner;
 			System.out.println("Do you still want to order? yes/no");
 			isOrdering = scan.nextLine();
 		} while(isOrdering.equalsIgnoreCase("yes"));
+		
 		System.out.println(orderItems);
 		
 	}
+	
 }

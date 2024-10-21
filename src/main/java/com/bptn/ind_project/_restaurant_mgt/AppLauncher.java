@@ -24,7 +24,8 @@ public class AppLauncher {
 			System.out.println("\nRestaurant Management System");
 			System.out.println("1. View Menu");
             System.out.println("2. Place Order");
-            System.out.println("3. Exit");
+            System.out.println("3. Print Order");
+            System.out.println("4. Exit");
             System.out.println("Enter a number");
 
             choice = scan.nextInt();
@@ -38,13 +39,16 @@ public class AppLauncher {
             	order.placeOrder(menuItems);
             	break;
             case 3:
+            	Printer.printOrder(order);
+            	break;
+            case 4:
             	System.out.println("Thanks! Please come again");
             	break;
             default:
                 System.out.println("Invalid choice, try again.");
             }
                 
-		}while(choice != 3);
+		}while(choice != 4);
 		
 		scan.close();
 	}
