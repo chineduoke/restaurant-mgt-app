@@ -1,6 +1,7 @@
 package com.bptn.ind_project._restaurant_mgt;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AppLauncher {
@@ -20,37 +21,45 @@ public class AppLauncher {
 		Scanner scan = new Scanner(System.in);
 		int choice;
 		
-		do {
-			System.out.println("\nRestaurant Management System");
-			System.out.println("1. View Menu");
-            System.out.println("2. Place Order");
-            System.out.println("3. Print Order");
-            System.out.println("4. Exit");
-            System.out.println("Enter a number");
+		try {
+			do {
+				System.out.println("\nRestaurant Management System");
+				System.out.println("1. View Menu");
+	            System.out.println("2. Place Order");
+	            System.out.println("3. Print Order");
+	            System.out.println("4. Exit");
+	            System.out.println("Enter a number");
 
-            choice = scan.nextInt();
-            scan.nextLine(); 
+	            choice = scan.nextInt();
+	            scan.nextLine(); 
 
-            switch (choice) {
-            case 1:
-            	menu.viewMenu();
-            	break;
-            case 2:
-            	order.placeOrder(menuItems);
-            	break;
-            case 3:
-            	Printer.printOrder(order);
-            	break;
-            case 4:
-            	System.out.println("Thanks! Please come again");
-            	break;
-            default:
-                System.out.println("Invalid choice, try again.");
-            }
-                
-		}while(choice != 4);
+	            switch (choice) {
+	            case 1:
+	            	menu.viewMenu();
+	            	break;
+	            case 2:
+	            	order.placeOrder(menuItems);
+	            	break;
+	            case 3:
+	            	Printer.printOrder(order);
+	            	break;
+	            case 4:
+	            	System.out.println("Thanks! Please come again");
+	            	break;
+	            default:
+	                System.out.println("Invalid choice, try again.");
+	            }        
+			}while(choice != 4);
+			
+		} catch (InputMismatchException e) {
+			System.out.println("Enter a number. Start again!");
+		} catch (NegativeNumberException e) {
+			System.out.println(e.getMessage());
+		}
+		finally {
+			scan.close();
+		}
 		
-		scan.close();
 	}
 
 }

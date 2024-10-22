@@ -11,7 +11,7 @@ class Menu {
 	
 	// view the menu based on categories
 	public void viewMenu() {
-		System.out.println("Menu");
+		System.out.println("\nMenu");
 		for(MenuItem menuItem: menuItems) {
 			if(menuItem.getCategory().equals("Drink")) {
 				System.out.println(menuItem);

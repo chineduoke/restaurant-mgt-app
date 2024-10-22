@@ -23,7 +23,7 @@ import java.util.Scanner;
 //	}
 
 
-	public void placeOrder(ArrayList<MenuItem> menuItems) {
+	public void placeOrder(ArrayList<MenuItem> menuItems) throws NegativeNumberException {
 		Scanner scan = new Scanner(System.in);
 		String isOrdering;
 		
@@ -45,7 +45,11 @@ import java.util.Scanner;
                 System.out.println("Enter the quantity:");
                 int quantity = scan.nextInt();
                 scan.nextLine();
-
+                
+                if (quantity <= 0) {
+                	throw new NegativeNumberException("Enter a number greater than zero! Start again");
+                }
+                
                 orderItems.put(selectedItem, orderItems.getOrDefault(selectedItem, 0) + quantity);
             } else {
                 System.out.println("Item not found in the menu.");
