@@ -23,12 +23,12 @@ public class AppLauncher {
 		
 		try {
 			do {
-				System.out.println("\nRestaurant Management System");
+				System.out.println("\033[0;34m\nRestaurant Management System\033[0m");
 				System.out.println("1. View Menu");
 	            System.out.println("2. Place Order");
 	            System.out.println("3. Print Order");
 	            System.out.println("4. Exit");
-	            System.out.println("Enter a number");
+	            System.out.println("\033[0;32mEnter a number\033[0m");
 
 	            choice = scan.nextInt();
 	            scan.nextLine(); 

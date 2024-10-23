@@ -17,6 +17,8 @@ class Printer {
                 int quantity = entry.getValue();
                 writer.write(item + " x" + quantity + "\n");
             }
+            double totalPrice = order.calculateTotalPrice();
+            writer.write("Total price: " + String.valueOf(totalPrice));
             
             System.out.println("Order printed");
             writer.close();

@@ -59,8 +59,21 @@ import java.util.Scanner;
 			isOrdering = scan.nextLine();
 		} while(isOrdering.equalsIgnoreCase("yes"));
 		
-		System.out.println(orderItems);
-		
 	}
 	
+	
+	public double calculateTotalPrice() {
+	    double totalPrice = 0.0;
+	    
+	    // Iterate over each entry in orderItems to get the total price
+	    for (Map.Entry<MenuItem, Integer> entry : orderItems.entrySet()) {
+	        MenuItem item = entry.getKey();
+	        int quantity = entry.getValue();
+	        
+	        totalPrice += item.getPrice() * quantity;
+	    }
+	    
+	    return totalPrice;
+	}
+
 }
