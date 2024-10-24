@@ -9,7 +9,7 @@ class Printer {
     public static void printOrder(Order order) {
         try {
             FileWriter writer = new FileWriter("order.txt");
-            writer.write("Order Receipt\n");
+            writer.write("----Order Receipt----\n");
             
             	// Loop through the orderItems map and write them to the file
             for (Map.Entry<MenuItem, Integer> entry : order.getOrderItems().entrySet()) {
@@ -18,6 +18,7 @@ class Printer {
                 writer.write(item + " x" + quantity + "\n");
             }
             double totalPrice = order.calculateTotalPrice();
+            writer.write("------------------\n");
             writer.write("Total price: " + String.valueOf(totalPrice));
             
             System.out.println("Order printed");

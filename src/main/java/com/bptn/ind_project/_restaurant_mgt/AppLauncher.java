@@ -28,7 +28,7 @@ public class AppLauncher {
 	            System.out.println("2. Place Order");
 	            System.out.println("3. Print Order");
 	            System.out.println("4. Exit");
-	            System.out.println("\033[0;32mEnter a number\033[0m");
+	            System.out.println("\033[0;32mEnter a number:\033[0m");
 
 	            choice = scan.nextInt();
 	            scan.nextLine(); 
@@ -44,17 +44,17 @@ public class AppLauncher {
 	            	Printer.printOrder(order);
 	            	break;
 	            case 4:
-	            	System.out.println("Thanks! Please come again");
+	            	System.out.println("\033[0;32mThanks! Please come again\033[0m");
 	            	break;
 	            default:
-	                System.out.println("Invalid choice, try again.");
+	                System.out.println("\033[0;31mInvalid choice, try again.\033[0m");
 	            }        
 			}while(choice != 4);
 			
 		} catch (InputMismatchException e) {
-			System.out.println("Enter a number. Start again!");
+			System.out.println("\033[0;31mEnter a number. Start again!\033[0m");
 		} catch (NegativeNumberException e) {
-			System.out.println(e.getMessage());
+			System.out.println("\033[0;31m" + e.getMessage() + "\033[0m");
 		}
 		finally {
 			scan.close();

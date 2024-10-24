@@ -29,7 +29,7 @@ import java.util.Scanner;
 		
 		// continue looping when user types yes
 		do {
-			System.out.println("Add the name of the item");
+			System.out.println("Add the name of the item:");
 			String orderItem = scan.nextLine();
 			
 			// loop through menu items to search for item ordered and assign it a selectedItem variable
@@ -47,12 +47,12 @@ import java.util.Scanner;
                 scan.nextLine();
                 
                 if (quantity <= 0) {
-                	throw new NegativeNumberException("Enter a number greater than zero! Start again");
+                	throw new NegativeNumberException("Enter a quantity greater than zero! Start again");
                 }
                 
                 orderItems.put(selectedItem, orderItems.getOrDefault(selectedItem, 0) + quantity);
             } else {
-                System.out.println("Item not found in the menu.");
+                System.out.println("\033[0;31mItem not found in the menu.\033[0m");
             }
 
 			System.out.println("Do you still want to order? yes/no");
