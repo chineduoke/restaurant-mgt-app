@@ -1,15 +1,14 @@
 package com.bptn.ind_project._restaurant_mgt;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UnitTest {
-	ArrayList<MenuItem> menuItems;
+public class UnitTest {
+ArrayList<MenuItem> menuItems;
 	
 	@Test
 	void testToString() {
@@ -33,9 +32,4 @@ class UnitTest {
         
         assertEquals(expectedPrice, actualPrice, "The total price should be calculated correctly.");
 	}
-	
-//	void test() {
-//		fail("Not yet implemented");
-//	}
-
 }

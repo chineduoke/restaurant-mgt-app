@@ -15,13 +15,15 @@ class Printer {
             for (Map.Entry<MenuItem, Integer> entry : order.getOrderItems().entrySet()) {
                 MenuItem item = entry.getKey();
                 int quantity = entry.getValue();
-                writer.write(item + " x" + quantity + "\n");
+                writer.write(item + " x " + quantity + "\n");
             }
-            double totalPrice = order.calculateTotalPrice();
-            writer.write("------------------\n");
-            writer.write("Total price: " + String.valueOf(totalPrice));
+            String totalPrice = String.valueOf(order.calculateTotalPrice());
+            		
+            writer.write("---------------------\n");
+            writer.write("Total price: $" + totalPrice);
             
             System.out.println("Order printed");
+            //order.getOrderItems().clear();
             writer.close();
 
         } catch (IOException e) {

@@ -1,4 +1,5 @@
 ----Order Receipt----
-Rose: $23.00 (Drink) x2
-------------------
-Total price: 46.0
+Rose: $15.00 x 1
+Burger: $10.00 x 2
+---------------------
+Total price: $35.0

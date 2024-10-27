@@ -18,18 +18,21 @@ import java.util.Scanner;
 	}
 
 
-//	public void setOrderItems(Map<MenuItem, Integer> orderItems) {
-//		this.orderItems = orderItems;
-//	}
+	public void setOrderItems(Map<MenuItem, Integer> orderItems) {
+		this.orderItems = orderItems;
+	}
 
 
 	public void placeOrder(ArrayList<MenuItem> menuItems) throws NegativeNumberException {
+		Menu menu = new InHouseMenu(menuItems);
+		menu.viewMenu();
+		
 		Scanner scan = new Scanner(System.in);
 		String isOrdering;
 		
 		// continue looping when user types yes
 		do {
-			System.out.println("Add the name of the item:");
+			System.out.println("\nAdd the name of the item to order:");
 			String orderItem = scan.nextLine();
 			
 			// loop through menu items to search for item ordered and assign it a selectedItem variable
@@ -63,17 +66,10 @@ import java.util.Scanner;
 	
 	
 	public double calculateTotalPrice() {
-	    double totalPrice = 0.0;
 	    
-	    // Iterate over each entry in orderItems to get the total price
-	    for (Map.Entry<MenuItem, Integer> entry : orderItems.entrySet()) {
-	        MenuItem item = entry.getKey();
-	        int quantity = entry.getValue();
-	        
-	        totalPrice += item.getPrice() * quantity;
-	    }
-	    
-	    return totalPrice;
+	    return orderItems.entrySet().stream()
+	            .mapToDouble(entry -> entry.getKey().getPrice() * entry.getValue())
+	            .sum();
 	}
 
 }
