@@ -23,7 +23,6 @@ class Printer {
             writer.write("Total price: $" + totalPrice);
             
             System.out.println("Order printed");
-            //order.getOrderItems().clear();
             writer.close();
 
         } catch (IOException e) {
